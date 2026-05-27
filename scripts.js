@@ -17,24 +17,34 @@ function displayNews(articles) {
   const newsDiv = document.querySelector("#news");
   for (const article of articles) {
     const articleDiv = document.createElement("div");
+    articleDiv.classList.add("news-container");
 
     //create and append a headline to the articleDiv
     const newsImage = document.createElement("img");
     newsImage.src = article.urlToImage;
+    newsImage.classList.add("news-image");
     articleDiv.appendChild(newsImage);
+
+    const contentDiv = document.createElement("div");
+    contentDiv.classList.add("news-content");
 
     const title = document.createElement("h4");
     title.textContent = article.title;
-    articleDiv.appendChild(title);
+    title.classList.add("news-title");
+    contentDiv.appendChild(title);
 
     // TODO: Use document.createElement and appendChild to create and append more elements
     const description = document.createElement("p");
     description.textContent = article.description;
-    articleDiv.appendChild(description);
+    description.classList.add("news-description");
+    contentDiv.appendChild(description);
 
     const author = document.createElement("p");
     author.textContent = article.author;
-    articleDiv.appendChild(author);
+    author.classList.add("news-author");
+    contentDiv.appendChild(author);
+
+    articleDiv.appendChild(contentDiv);
     newsDiv.appendChild(articleDiv);
   }
 }
