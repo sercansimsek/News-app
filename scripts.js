@@ -19,6 +19,10 @@ function displayNews(articles) {
     const articleDiv = document.createElement("div");
 
     //create and append a headline to the articleDiv
+    const newsImage = document.createElement("img");
+    newsImage.src = article.urlToImage;
+    articleDiv.appendChild(newsImage);
+
     const title = document.createElement("h4");
     title.textContent = article.title;
     articleDiv.appendChild(title);
