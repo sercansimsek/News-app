@@ -5,11 +5,18 @@
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 
 #category {
-    align-self: center;
+  min-width: 240px;
 }
 
 #news {
