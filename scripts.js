@@ -1,20 +1,34 @@
 const apiKey = process.env.NEWS_API_KEY;
-const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
-async function fetchNews() {
+function buildCategoryUrl() {
+  const categoryInput = document.querySelector("#category");
+  const category = categoryInput.value;
+  const categoryParam = category === "all" ? "" : `&category=${category}`;
+  return `https://newsapi.org/v2/top-headlines?country=us${categoryParam}&apiKey=${apiKey}`;
+}
+
+async function fetchNews(newUrl) {
   try {
-    const response = await fetch(url);
+    const response = await fetch(newUrl);
     const data = await response.json();
     console.log(data);
-    // TODO: Add a function call to display the news
     displayNews(data.articles);
   } catch (error) {
     console.error("There was an error!", error);
   }
 }
 
+const categorySelect = document.querySelector("#category");
+if (categorySelect) {
+  categorySelect.addEventListener("change", () => {
+    fetchNews(buildCategoryUrl());
+  });
+}
+
 function displayNews(articles) {
   const newsDiv = document.querySelector("#news");
+  newsDiv.innerHTML = "";
   for (const article of articles) {
     const articleDiv = document.createElement("div");
     articleDiv.classList.add("news-container");
@@ -49,4 +63,4 @@ function displayNews(articles) {
   }
 }
 
-fetchNews();
+fetchNews(url);

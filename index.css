@@ -8,6 +8,10 @@ h1 {
     text-align: center;
 }
 
+#category {
+    align-self: center;
+}
+
 #news {
   margin: 1rem auto;
   display: flex;

@@ -8,14 +8,20 @@
   </head>
   <body>
     <h1>Top Headlines</h1>
-    <div id="news">
-      <div class="news-container">
-        <h4 class="news-title"></h4>
-        <img class="news-image" />
-        <p class="news-description"></p>
-        <p class="news-author"></p>
-      </div>
+    <div id="controls">
+      <label for="category">Choose Category</label>
+      <select name="category" id="category">
+        <option value="all">All categories</option>
+        <option value="business">Business</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="general">General</option>
+        <option value="health">Health</option>
+        <option value="science">Science</option>
+        <option value="sports">Sports</option>
+        <option value="technology">Technology</option>
+      </select>
     </div>
+    <div id="news"></div>
     <script type="module" src="scripts.js"></script>
   </body>
 </html>
